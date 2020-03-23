@@ -27,3 +27,4 @@ jobs:
           FOLDER: . # The folder the action should deploy.
           REPOSITORY_NAME: brunopenso/covid19brasil
           DEBUG: true
+          TARGET_FOLDER: .
