@@ -26,3 +26,4 @@ jobs:
           BRANCH: master # The branch the action should deploy to.
           FOLDER: . # The folder the action should deploy.
           REPOSITORY_NAME: brunopenso/covid19brasil
+          DEBUG: true
