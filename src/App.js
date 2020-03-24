@@ -9,7 +9,7 @@ import {
 
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-  Bar, ComposedChart
+  Bar, ComposedChart, ResponsiveContainer
 } from 'recharts';
 
 function App() {
@@ -39,41 +39,40 @@ function App() {
       </div>
       
       <div className="flex-container">
-        <div>
-          <ComposedChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-              top: 5, right: 30, left: 20, bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="date" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="PConfirmedCases" barSize={20} fill="#413ea0" name="% de casos em relação D-1"/>
-            <Line type="monotone" dataKey="confirmedCases" stroke="#8884d8" activeDot={{ r: 2 }} name="casos confirmados"/>
-          </ComposedChart>
+        <div className="container">
+          <ResponsiveContainer width='90%' aspect={1.6} minWidth={300}>
+            <ComposedChart
+              data={data}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="date" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="PConfirmedCases" barSize={20} fill="#413ea0" name="% de casos em relação D-1"/>
+              <Line type="monotone" dataKey="confirmedCases" stroke="#8884d8" activeDot={{ r: 2 }} name="casos confirmados"/>
+            </ComposedChart>
+          </ResponsiveContainer>
         </div>
-        <div>
-        <ComposedChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-              top: 5, right: 30, left: 20, bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="date" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="PDeathCases" barSize={20} fill="#413ea0" name="% de casos em relação D-1"/>
-            <Line type="monotone" dataKey="deathCases" stroke="#8884d8" activeDot={{ r: 8 }} name="Mortes"/>
-          </ComposedChart>
+        <div className="container">
+          <ResponsiveContainer width='90%' aspect={1.6} minWidth={300}>
+            <ComposedChart
+                width={500}
+                height={300}
+                data={data}
+                margin={{
+                  top: 5, right: 30, left: 20, bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="date" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="PDeathCases" barSize={20} fill="#413ea0" name="% de casos em relação D-1"/>
+                <Line type="monotone" dataKey="deathCases" stroke="#8884d8" activeDot={{ r: 8 }} name="Mortes"/>
+              </ComposedChart>
+            </ResponsiveContainer>
         </div>
         
       </div>

@@ -35,3 +35,9 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.container {
+  width: 95%;
+  justify-content: start;
+  max-width: 500px;
+}
