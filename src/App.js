@@ -17,24 +17,32 @@ function App() {
   let lDeathCases
   data.forEach(element => {
     if (lConfirmedCases > 0 && lDeathCases > 0) {
-      element.PConfirmedCases = (1-(lConfirmedCases / element.confirmedCases)) * 100
-      element.PDeathCases = (1-(lDeathCases / element.deathCases)) * 100
+      element.PConfirmedCases = calc(lConfirmedCases, element.confirmedCases)
+      element.PDeathCases = calc(lDeathCases, element.deathCases)
     }
     lConfirmedCases = element.confirmedCases
     lDeathCases = element.deathCases
   });
 
+  function calc(lastValue, newValue) {
+    const percentage = ''+(1-(lastValue / newValue)) * 100
+
+    return percentage.substring(0,5)
+  }
+
   return (
     <div className="App">
+      <div>
         <p className="App-header">
           Covid-19 Brasil - Acompanhamento do Gráfico e simulações
         </p>
+      </div>
       <div>
-        <p className="SmallText">
-          Para atualizar os dados deste gráfico é necessário fazer um update no arquivo dentro da pasta <b>data</b>
-        </p>
         <p className="MediumText">
           Os dados são coletados das fontes oficias sempre no final do dia
+        </p>
+        <p className="SmallText">
+          Para atualizar os dados deste gráfico é necessário fazer um update no arquivo dentro da pasta <b>data</b> no repositório <a href="https://github.com/brunopenso/covid19brasilsrc" target="_blank" rel="noopener noreferrer">brunopenso/covid19brasilsrc</a>
         </p>
       </div>
       
@@ -48,7 +56,7 @@ function App() {
               <XAxis dataKey="date" />
               <YAxis />
               <Tooltip />
-              <Legend />
+              <Legend layout="vertical" align="center" verticalAlign="bottom" iconSize="12"/>
               <Bar dataKey="PConfirmedCases" barSize={20} fill="#413ea0" name="% de casos em relação D-1"/>
               <Line type="monotone" dataKey="confirmedCases" stroke="#8884d8" activeDot={{ r: 2 }} name="casos confirmados"/>
             </ComposedChart>
@@ -68,7 +76,7 @@ function App() {
                 <XAxis dataKey="date" />
                 <YAxis />
                 <Tooltip />
-                <Legend />
+                <Legend layout="vertical" align="center" verticalAlign="bottom" iconSize="12"/>
                 <Bar dataKey="PDeathCases" barSize={20} fill="#413ea0" name="% de casos em relação D-1"/>
                 <Line type="monotone" dataKey="deathCases" stroke="#8884d8" activeDot={{ r: 8 }} name="Mortes"/>
               </ComposedChart>

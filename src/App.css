@@ -1,20 +1,19 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  margin-top: 0px;
 }
 
 .App-header {
-  margin-top: 5px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  background-color: #00bdaa;
+  padding: 10px;
 }
 
 .App-link {
