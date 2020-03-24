@@ -9,23 +9,38 @@ import {
 
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  Bar, ComposedChart
 } from 'recharts';
 
 function App() {
+  let lConfirmedCases
+  let lDeathCases
+  data.forEach(element => {
+    if (lConfirmedCases > 0 && lDeathCases > 0) {
+      element.PConfirmedCases = (1-(lConfirmedCases / element.confirmedCases)) * 100
+      element.PDeathCases = (1-(lDeathCases / element.deathCases)) * 100
+    }
+    lConfirmedCases = element.confirmedCases
+    lDeathCases = element.deathCases
+  });
 
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
+        <p className="App-header">
           Covid-19 Brasil - Acompanhamento do Gráfico e simulações
         </p>
+      <div>
         <p className="SmallText">
           Para atualizar os dados deste gráfico é necessário fazer um update no arquivo dentro da pasta <b>data</b>
         </p>
-      </header>
+        <p className="MediumText">
+          Os dados são coletados das fontes oficias sempre no final do dia
+        </p>
+      </div>
+      
       <div className="rowContent">
         <div className="content">
-          <LineChart
+          <ComposedChart
             width={500}
             height={300}
             data={data}
@@ -38,11 +53,12 @@ function App() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="confirmedCases" stroke="#8884d8" activeDot={{ r: 8 }} />
-          </LineChart>
+            <Bar dataKey="PConfirmedCases" barSize={20} fill="#413ea0" name="% de casos em relação D-1"/>
+            <Line type="monotone" dataKey="confirmedCases" stroke="#8884d8" activeDot={{ r: 2 }} name="casos confirmados"/>
+          </ComposedChart>
         </div>
         <div className="content">
-        <LineChart
+        <ComposedChart
             width={500}
             height={300}
             data={data}
@@ -55,8 +71,9 @@ function App() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="deathCases" stroke="#8884d8" activeDot={{ r: 8 }} />
-          </LineChart>
+            <Bar dataKey="PDeathCases" barSize={20} fill="#413ea0" name="% de casos em relação D-1"/>
+            <Line type="monotone" dataKey="deathCases" stroke="#8884d8" activeDot={{ r: 8 }} name="Mortes"/>
+          </ComposedChart>
         </div>
         
       </div>

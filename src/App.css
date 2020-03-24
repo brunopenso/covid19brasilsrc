@@ -25,6 +25,10 @@
   font-size: 10px;
 }
 
+.MediumText {
+  font-size: 12px;
+}
+
 .rowContent {
   display: flex;
   justify-content: center;
