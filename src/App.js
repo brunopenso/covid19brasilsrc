@@ -38,8 +38,8 @@ function App() {
         </p>
       </div>
       
-      <div className="rowContent">
-        <div className="content">
+      <div className="flex-container">
+        <div>
           <ComposedChart
             width={500}
             height={300}
@@ -57,7 +57,7 @@ function App() {
             <Line type="monotone" dataKey="confirmedCases" stroke="#8884d8" activeDot={{ r: 2 }} name="casos confirmados"/>
           </ComposedChart>
         </div>
-        <div className="content">
+        <div>
         <ComposedChart
             width={500}
             height={300}
