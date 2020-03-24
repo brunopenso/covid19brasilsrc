@@ -1,0 +1,22 @@
+[
+    {
+        "date": "20/03/2020",
+        "confirmedCases": 1020,
+        "deathCases": 18
+    },
+    {
+        "date": "21/03/2020",
+        "confirmedCases": 1128,
+        "deathCases": 18
+    },
+    {
+        "date": "22/03/2020",
+        "confirmedCases": 1546,
+        "deathCases": 25
+    },
+    {
+        "date": "23/03/2020",
+        "confirmedCases": 1891,
+        "deathCases": 34
+    }
+]
