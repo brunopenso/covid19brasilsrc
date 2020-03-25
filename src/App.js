@@ -1,28 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import data from './data/index'
-/*
-import {
-  ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-  Legend, Scatter,
-} from 'recharts';*/
+import SimulPercent from './SimulPercent'
 
 import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   Bar, ComposedChart, ResponsiveContainer
 } from 'recharts';
 
 function App() {
-  let lConfirmedCases
-  let lDeathCases
-  data.forEach(element => {
-    if (lConfirmedCases > 0 && lDeathCases > 0) {
-      element.PConfirmedCases = calc(lConfirmedCases, element.confirmedCases)
-      element.PDeathCases = calc(lDeathCases, element.deathCases)
-    }
-    lConfirmedCases = element.confirmedCases
-    lDeathCases = element.deathCases
-  });
+  const [simulationPercentange, setSimulationPercentange] = useState(0)
+
+  useEffect( () => {
+    let lConfirmedCases
+    let lDeathCases
+    data.forEach(element => {
+      if (lConfirmedCases > 0 && lDeathCases > 0) {
+        element.PConfirmedCases = calc(lConfirmedCases, element.confirmedCases)
+        element.PDeathCases = calc(lDeathCases, element.deathCases)
+      }
+      lConfirmedCases = element.confirmedCases
+      lDeathCases = element.deathCases
+    });
+  }, [])
 
   function calc(lastValue, newValue) {
     const percentage = ''+(1-(lastValue / newValue)) * 100
@@ -82,8 +82,24 @@ function App() {
               </ComposedChart>
             </ResponsiveContainer>
         </div>
-        
       </div>
+      <div className="flex-container-simulation">
+        <div className="container-simulation">
+          A sessão abaixo são para simulações
+        </div>
+        <div className="container-simulation">
+          <input 
+            type="number" 
+            name="simulationPercentange" 
+            className="inputField" 
+            onChange={(e) => setSimulationPercentange(e.target.value)}
+            value={simulationPercentange} />
+        </div>
+      </div>
+      <div className="flex-container-simulation">
+        { simulationPercentange > 0 ? <SimulPercent data={data} percentage={simulationPercentange}/> : ''}
+      </div>
+      
     </div>
   );
 }
