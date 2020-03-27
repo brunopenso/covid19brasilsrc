@@ -38,5 +38,15 @@
         "date": "24/03/2020",
         "confirmedCases": 2021,
         "deathCases": 46
+    },
+    {
+        "date": "25/03/2020",
+        "confirmedCases": 2443,
+        "deathCases": 57
+    },
+    {
+        "date": "26/03/2020",
+        "confirmedCases": 2915,
+        "deathCases": 77
     }
 ]
