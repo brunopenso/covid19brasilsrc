@@ -58,5 +58,10 @@
         "date": "28/03/2020",
         "confirmedCases": 3904,
         "deathCases": 114
+    },
+    {
+        "date": "29/03/2020",
+        "confirmedCases": 4246,
+        "deathCases": 136
     }
 ]
