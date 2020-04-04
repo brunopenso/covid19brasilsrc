@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import data from './data/index'
-import SimulPercent from './SimulPercent'
 
 import {
   Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
@@ -9,7 +8,6 @@ import {
 } from 'recharts';
 
 function App() {
-  const [simulationPercentange, setSimulationPercentange] = useState(0)
 
   useEffect( () => {
     let lConfirmedCases
@@ -87,44 +85,8 @@ function App() {
             </ResponsiveContainer>
         </div>
       </div>
-      <div className="flex-container-simulation">
-        <div className="container-simulation">
-          A sessão abaixo são para simulações
-        </div>
-        <div className="container-simulation">
-          <input 
-            type="number" 
-            name="simulationPercentange" 
-            className="inputField" 
-            onChange={(e) => setSimulationPercentange(e.target.value)}
-            value={simulationPercentange} />
-        </div>
-      </div>
-      <div className="flex-container-simulation">
-        { simulationPercentange > 0 ? <SimulPercent data={data} percentage={simulationPercentange}/> : ''}
-      </div>
-      
     </div>
   );
 }
 
-export default App;
-/*
-<ComposedChart
-          width={500}
-          height={400}
-          data={data}
-          margin={{
-            top: 20, right: 20, bottom: 20, left: 20,
-          }}
-        >
-        <CartesianGrid stroke="#f5f5f5" />
-          <XAxis dataKey="date" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="deathCases" barSize={20} fill="#413ea0" />
-          <Line type="monotone" dataKey="confirmedCases" stroke="#ff7300" />
-        </ComposedChart>
-*/
-//<Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />
+export default App
