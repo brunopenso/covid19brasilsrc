@@ -1,5 +1,10 @@
 [
     {
+        "date": "16/03/2020",
+        "confirmedCases": 234,
+        "deathCases": 0
+    },
+    {
         "date": "17/03/2020",
         "confirmedCases": 349,
         "deathCases": 1
@@ -48,5 +53,45 @@
         "date": "26/03/2020",
         "confirmedCases": 2915,
         "deathCases": 77
+    },
+    {
+        "date": "27/03/2020",
+        "confirmedCases": 3477,
+        "deathCases": 93
+    },
+    {
+        "date": "28/03/2020",
+        "confirmedCases": 3905,
+        "deathCases": 114
+    },
+    {
+        "date": "29/03/2020",
+        "confirmedCases": 4256,
+        "deathCases": 136
+    },
+    {
+        "date": "30/03/2020",
+        "confirmedCases": 4579,
+        "deathCases": 159
+    },
+    {
+        "date": "31/03/2020",
+        "confirmedCases": 5717,
+        "deathCases": 201
+    },
+    {
+        "date": "01/04/2020",
+        "confirmedCases": 6931,
+        "deathCases": 244
+    },
+    {
+        "date": "02/04/2020",
+        "confirmedCases": 7910,
+        "deathCases": 299
+    },
+    {
+        "date": "03/04/2020",
+        "confirmedCases": 9056,
+        "deathCases": 359
     }
 ]

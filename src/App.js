@@ -40,6 +40,10 @@ function App() {
       <div>
         <p className="MediumText">
           Os dados são coletados das fontes oficias sempre no final do dia
+          <br/><br/>
+          Projeto está sendo desativado ou será atualizado com menos frequência já que o Ministério da Saúde lançou um site que tem a mesma ideia de visualização de dados que existe nesse site.
+          <br/><br/>
+          Acesse <a href="http://covid.saude.gov.br/">http://covid.saude.gov.br/</a>
         </p>
         <p className="SmallText">
           Para atualizar os dados deste gráfico é necessário fazer um update no arquivo dentro da pasta <b>data</b> no repositório <a href="https://github.com/brunopenso/covid19brasilsrc" target="_blank" rel="noopener noreferrer">brunopenso/covid19brasilsrc</a>
